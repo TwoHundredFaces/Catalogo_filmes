@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    background: linear-gradient(to bottom, violet, blue, purple);
+    font-family: "Lato", Helvetica, Arial;
+    font-size: 15px;
+    display: flex;
+    margin: 0;
+    min-height: 100vh;
+  }
+  
+  .models {
+    display: none;
+  }
+  
+  .modelo-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .modelo-item {
+    text-align: center;
+    max-width: 250px;
+    font-family: "Hepta Slab", Helvetica, Arial;
+    margin: 0 auto 50px auto;
+  }
+  .modelo-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+  }
+  /*.modelo-item-img {
+    border-radius: 15%;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
+  }*/
+
+  .modelo-item-img img {
+    width: 330px;
+    height: auto;
+    padding: 40px;
+  }
+  .modelo-item-add {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #388bc5;
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    margin-top: -25px;
+    transition: all ease 0.2s;
+  }
+  .modelo-item a:hover .modelo-item-add {
+    background-color: #244c88;
+  }
+
+  main {
+    flex: 1;
+    padding: 20px;
+  }
+  h1 {
+    font-family: "Hepta Slab", Helvetica, Arial;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .modelo-item-desc {
+    color: white;
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .modelo-item-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15%;
+    width: 15%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+
+  }
+
+  .container:hover .modelo-item-overlay {
+    opacity: 1;
+  }
+
+  .modelo-item-name {
+      color: white;
+      font-family: 'Hepta Slab';
+      font-weight: bolder;
+  }
