@@ -1,105 +1,263 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg, limegreen, whitesmoke, red);
+  font-family: "Lato", Helvetica, Arial;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+header {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  height: 60px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 2;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+header img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+
+h1 {
+  font-family: "Hepta Slab", Helvetica, Arial;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.img-slider {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  margin: 10px;
+  background: #1d212b;
+}
+
+.img-slider .slide {
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.img-slider .slide.active {
+  opacity: 1;
+}
+
+.img-slider .slide img {
+  z-index: 1;
+  width: 100%;
+  height: 600px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.img-slider .slide .info {
+  position: absolute;
+  top: 0;
+  padding: 15px 30px;
+}
+
+.img-slider .slide .info h2 {
+  color: white;
+  background: red;
+  width: 270px;
+  font-size: 45px;
+  text-transform: uppercase;
+  font-weight: 800;
+  text-shadow: #1d212b;
+  letter-spacing: 2px;
+  border-radius: 4px;
+}
+
+.img-slider .slide .info p {
+  color: white;
+  background: red;
+  font-size: 16px;
+  font-weight: bold;
+  width: 60%;
+  text-shadow: #1d212b;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.navigation {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navigation .btn {
+  background: rgba(255, 255, 255, 0.5);
+  width: 12px;
+  height: 12px;
+  margin: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.navigation .btn.active {
+  background: limegreen;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 820px) {
+  .img-slider {
+    width: 600px;
+    height: 375px;
   }
-  body {
-    background: linear-gradient(to bottom, violet, blue, purple);
-    font-family: "Lato", Helvetica, Arial;
+
+  .img-slider .slide .info {
+    padding: 10px 25px;
+  }
+
+  .img-slider .slide .info h2 {
+    font-size: 35px;
+  }
+
+  .img-slider .slide .info p {
+    width: 70%;
     font-size: 15px;
-    display: flex;
-    margin: 0;
-    min-height: 100vh;
-  }
-  
-  .models {
-    display: none;
-  }
-  
-  .modelo-area {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .modelo-item {
-    text-align: center;
-    max-width: 250px;
-    font-family: "Hepta Slab", Helvetica, Arial;
-    margin: 0 auto 50px auto;
-  }
-  .modelo-item a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-  }
-  /*.modelo-item-img {
-    border-radius: 15%;
-    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
-  }*/
-
-  .modelo-item-img img {
-    width: 330px;
-    height: auto;
-    padding: 40px;
-  }
-  .modelo-item-add {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 25px;
-    background-color: #388bc5;
-    text-align: center;
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-    margin-top: -25px;
-    transition: all ease 0.2s;
-  }
-  .modelo-item a:hover .modelo-item-add {
-    background-color: #244c88;
   }
 
-  main {
-    flex: 1;
-    padding: 20px;
-  }
-  h1 {
-    font-family: "Hepta Slab", Helvetica, Arial;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: space-evenly;
+  .navigation {
+    bottom: 25px;
   }
 
-  .modelo-item-desc {
-    color: white;
-    font-size: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
+  .navigation .btn {
+    width: 10px;
+    height: 10px;
+    margin: 8px;
+  }
+}
+
+@media (max-width: 620px) {
+  .img-slider {
+    width: 400px;
+    height: 250px;
   }
 
-  .modelo-item-overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 15%;
-    width: 15%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: #008CBA;
-
+  .img-slider .slide .info {
+    padding: 10px 20px;
   }
 
-  .container:hover .modelo-item-overlay {
-    opacity: 1;
+  .img-slider .slide .info h2 {
+    font-size: 30px;
   }
 
-  .modelo-item-name {
-      color: white;
-      font-family: 'Hepta Slab';
-      font-weight: bolder;
+  .img-slider .slide .info p {
+    width: 80%;
+    font-size: 13px;
   }
+
+  .navigation {
+    bottom: 15px;
+  }
+
+  .navigation .btn {
+    width: 8px;
+    height: 8px;
+    margin: 6px;
+  }
+}
+
+@media (max-width: 420px) {
+  .img-slider {
+    width: 320px;
+    height: 200px;
+  }
+
+  .img-slider .slide .info {
+    padding: 5px 10px;
+  }
+
+  .img-slider .slide .info h2 {
+    font-size: 25px;
+  }
+
+  .img-slider .slide .info p {
+    width: 90%;
+    font-size: 11px;
+  }
+
+  .navigation {
+    bottom: 10px;
+  }
+}
+
+.models {
+  display: none;
+}
+
+.modelo-area {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 20px;
+  gap: 20px;
+  justify-items: center;
+}
+
+.modelo-item {
+  color: white;
+  text-align: center;
+  max-width: 250px;
+  font-family: "Hepta Slab", Helvetica, Arial;
+  margin: 0 auto;
+}
+
+.modelo-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.modelo-item-img img {
+  width: 330px;
+  height: auto;
+  padding: 40px;
+  opacity: 1;
+  margin-bottom: 10px;
+}
+
+.bl-title {
+  color: white;
+  font-family: "Hepta Slab", Helvetica, Arial;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 5px solid #ffffff;
+  padding-bottom: 10px;
+}
